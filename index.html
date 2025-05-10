@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Emergency Response System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/stylez.css">
+    <link rel="stylesheet" href="css/ai-response.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- OpenStreetMap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Add Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo-container">
+                <img src="img/aiders_logo.png" alt="AIDERS Logo" class="header-logo">
+            <h1> AI-Driven Intelligent Emergency Response System</h1>
+        </header>
+
+        <main>
+            <!-- Welcome Section -->
+            <section id="welcome-section" class="active-section">
+                <div class="welcome-card">
+                    <h2>Welcome to AI Response!</h2>
+                    <p>Your partner in emergency situations.</p>
+                    
+                    <p class="description">This system helps you report emergencies efficiently and access vital information quickly.</p>
+                    
+                    <button id="report-emergency-btn" class="primary-btn" style="border: 2px solid;">
+                        <i class="fas fa-exclamation-triangle" style="color: #ffffff;"></i> Report an Emergency
+                    </button>
+                </div>
+
+                <!-- Add Emergency Status Dashboard -->
+                <div class="status-dashboard">
+                    <div class="status-header">
+                        <h3 style="color: black;"><i class="fas fa-chart-line"></i> Emergency Status</h3>
+                    </div>
+                    <div class="status-content">
+                        <div class="status-item">
+                            <div class="status-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="status-info">
+                                <h4>System Status</h4>
+                                <p>All systems operational</p>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="status-info">
+                                <h4>Safety Tip</h4>
+                                <p id="safety-tip">Always keep emergency contacts easily accessible.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                
+                <!-- Feature Cards -->
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon alert-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Instant Reporting</h3>
+                            <p>Quickly report emergencies with essential details.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon phone-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Hotline Access</h3>
+                            <p>Immediate access to crucial emergency hotlines.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon ai-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>AI Assistance</h3>
+                            <p>Smart recommendations and guidance (simulated).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon safety-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Safety First</h3>
+                            <p>Your well-being is our top priority.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions Section -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn quickButtons"
+                            onclick="document.querySelector('[data-section=hotlines-section]').click();">
+                            <i class="fas fa-phone-alt"></i> View Hotlines
+                        </button>
+                        <button class="action-btn quickButtons"
+                            onclick="document.querySelector('[data-section=my-reports-section]').click();">
+                            <i class="fas fa-clipboard-list"></i> My Reports
+                        </button>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- Hotlines Section -->
+            <section id="hotlines-section" class="hidden-section section-transition">
+                <div class="section-header">
+                    <h2 style="color: #fff;"><i class="fas fa-phone-alt"></i> Emergency Hotlines</h2>
+                    <p>Quick access to important emergency numbers. Tap to call.</p>
+                </div>
+                
+                <div class="hotlines-container">
+                    <div class="hotline-card">
+                        <div class="hotline-icon emergency-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="hotline-info">
+                            <h3>National Emergency Hotline</h3>
+                            <p>For all types of emergencies.</p>
+                            <div class="hotline-number">911</div>
+                        </div>
+                        <a href="tel:911" class="call-button">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="hotline-card">
+                        <div class="hotline-icon police-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="hotline-info">
+                            <h3>Police</h3>
+                            <p>For crimes and public safety concerns.</p>
+                            <div class="hotline-number">117</div>
+                        </div>
+                        <a href="tel:117" class="call-button">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="hotline-card">
+                        <div class="hotline-icon fire-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="hotline-info">
+                            <h3>Fire Department</h3>
+                            <p>For fire incidents and rescue.</p>
+                            <div class="hotline-number">160</div>
+                        </div>
+                        <a href="tel:160" class="call-button">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="hotline-card">
+                        <div class="hotline-icon medical-icon">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <div class="hotline-info">
+                            <h3>Ambulance / Medical</h3>
+                            <p>For medical emergencies and transport.</p>
+                            <div class="hotline-number">161</div>
+                        </div>
+                        <a href="tel:161" class="call-button">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="hotline-card">
+                        <div class="hotline-icon disaster-icon">
+                            <i class="fas fa-house-damage"></i>
+                        </div>
+                        <div class="hotline-info">
+                            <h3>Disaster Response</h3>
+                            <p>For natural disasters and large-scale incidents.</p>
+                            <div class="hotline-number">132</div>
+                        </div>
+                        <a href="tel:132" class="call-button">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- My Reports History Section -->
+            <section id="my-reports-section" class="hidden-section section-transition">
+                <div class="section-header">
+                    <h2 style="color: #fff;"><i class="fas fa-clipboard-list"></i> My Reported Emergencies</h2>
+                    <p>Here's a list of emergencies you've reported.</p>
+                </div>
+                
+                <div class="reports-container">
+                    <!-- This will be populated dynamically, but we'll add some examples for now -->
+                </div>
+            </section>
+
+            <!-- Map Section -->
+            <section id="map-section" class="hidden-section section-transition">
+                <div class="section-header">
+                    <h2 style="color: rgb(255, 255, 255);"><i class="fas fa-map-marked-alt"></i> Emergency Map</h2>
+                    <p>Find nearby emergency services and share your location</p>
+                </div>
+                
+                <div class="map-controls">
+                    <button id="get-location-btn" class="action-btn">
+                        <i class="fas fa-map-marker-alt"></i> Get My Location
+                    </button>
+                    <button id="share-location" class="action-btn">
+                        <i class="fas fa-share-alt"></i> Share My Location
+                    </button>
+                </div>
+                
+                <div id="emergency-map" class="map-container"></div>
+                
+            </section>
+
+            <!-- Report Form Section -->
+            <section id="report-form" class="hidden-section section-transition">
+                <div class="emergency-report-header">
+                    <div class="alert-icon-container">
+                        <i class="fas fa-exclamation-triangle pulse"></i>
+                    </div>
+                    <div class="header-content">
+                        <h2 style="color: #fff;">Report an Emergency</h2> 
+                        <p>Please provide as much detail as possible. Your quick response can save lives.</p>
+                    </div>
+                </div>
+                
+                <div class="report-form-container">
+                    <form id="emergency-form">
+                        <div class="form-field">
+                            <label for="emergency-type">Emergency Type</label>
+                            <div class="emergency-type-selector">
+                                <div class="emergency-type-options">
+                                    <div class="emergency-option" data-value="medical">
+                                        <div class="option-icon medical-icon">
+                                            <i class="fas fa-heartbeat"></i>
+                                        </div>
+                                        <div class="option-text">Medical</div>
+                                    </div>
+                                    <div class="emergency-option" data-value="fire">
+                                        <div class="option-icon fire-icon">
+                                            <i class="fas fa-fire"></i>
+                                        </div>
+                                        <div class="option-text">Fire</div>
+                                    </div>
+                                    <div class="emergency-option" data-value="police">
+                                        <div class="option-icon police-icon">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <div class="option-text">Crime/Police</div>
+                                    </div>
+                                    <div class="emergency-option" data-value="disaster">
+                                        <div class="option-icon disaster-icon">
+                                            <i class="fas fa-water"></i>
+                                        </div>
+                                        <div class="option-text">Natural Disaster</div>
+                                    </div>
+                                    <div class="emergency-option" data-value="traffic">
+                                        <div class="option-icon traffic-icon">
+                                            <i class="fas fa-car-crash"></i>
+                                        </div>
+                                        <div class="option-text">Traffic Accident</div>
+                                    </div>
+                                    <div class="emergency-option" data-value="other">
+                                        <div class="option-icon other-icon">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </div>
+                                        <div class="option-text">Other</div>
+                                    </div>
+                                </div>
+                                <select id="emergency-type" name="emergency-type" required class="hidden-select">
+                                    <option value="" disabled selected>Select emergency type</option>
+                                    <option value="medical">Medical</option>
+                                    <option value="fire">Fire</option>
+                                    <option value="police">Crime/Police</option>
+                                    <option value="disaster">Natural Disaster</option>
+                                    <option value="traffic">Traffic Accident</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- New Reporter Name Field (Optional) -->
+                        <div class="form-field">
+                            <label for="reporter-name">Name: (Optional)</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="reporter-name" name="reporter-name" placeholder="Anonymous">
+                            </div>
+                            <small class="field-note">*Leave blank to report anonymously*</small>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="location">Location / Address</label>
+                            <div class="location-input">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" id="location" name="location" placeholder="Fetching your location..." readonly>
+                                <button type="button" id="refresh-location" title="Get my current location">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </div>
+                            <div class="location-status" id="location-status"></div>
+                            <div id="location-map" class="location-map"></div>
+                            <div class="location-coordinates">
+                                <span id="coordinates-display"></span>
+                                <input type="hidden" id="latitude" name="latitude">
+                                <input type="hidden" id="longitude" name="longitude">
+                            </div>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="description">Description of Emergency</label>
+                            <div class="form-group">
+
+                            </div>
+                            <textarea id="description" name="description" placeholder="Briefly describe the emergency..." required></textarea>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="urgency">Urgency Level</label>
+                            <select id="urgency" name="urgency">
+                                <option value="low">Low - Not life-threatening</option>
+                                <option value="medium" selected>Medium - Urgent but stable</option>
+                                <option value="high">High - Life-threatening</option>
+                            </select>
+                        </div>
+                        
+                        <div class="optional-section">
+                            <h3>Optional: Media Upload</h3>
+                            <p>Upload images or videos of the incident if available.</p>
+                            
+                            <div class="optional-field">
+                                <label for="media-upload">Upload Images/Videos</label>
+                                <input type="file" id="media-upload" name="media" accept="image/*,video/*" multiple>
+                                <div id="media-preview" class="media-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-report-btn">
+                            <i class="fas fa-paper-plane"></i> Submit Emergency Report
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- AI Response Section -->
+            <section id="ai-response" class="hidden-section section-transition">
+                
+                <div class="response-container">
+                    <h2>Emergency Response</h2>
+                    
+                        <div class="ai-guidance">
+                            <h3>AI Guidance</h3>
+                            <div id="ai-guidance-content" class="guidance-content">
+                                <p class="loading">Analyzing emergency and generating guidance...</p>
+                            </div>
+                        </div>
+
+                        
+                    
+                    
+                    <div class="action-buttons" >
+                        <button id="call-emergency" class="action-btn call-btn"
+                        style="background-color: #0069d9; color: white;"
+                        onmouseover="this.style.backgroundColor='#007bff';"
+                        onmouseout="this.style.backgroundColor='#0069d9';"
+                        onclick="document.querySelector('[data-section=hotlines-section]').click();">
+                        <i class="fas fa-phone-alt"></i> Call Emergency Services
+                    </button>
+                    
+                    <button id="share-location" class="action-btn share-btn"
+                    style="background-color: #218838; color: white;"
+                    onmouseover="this.style.backgroundColor='#28a745';"
+                    onmouseout="this.style.backgroundColor='#218838';"
+                    onclick="document.querySelector('[data-section=map-section]').click();">
+                    <i class="fas fa-share-alt"></i> Share My Location
+                </button>
+                
+                    </div>
+                </div>
+            </section>
+
+            <!-- First Aid Instructions Section -->
+            <section id="first-aid-section" class="hidden-section section-transition">
+
+                
+                <!-- This will be populated by the first-aid.js script -->
+            </section>
+
+
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <footer>
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" data-section="welcome-section">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" data-section="report-form">
+                <i class="fas fa-exclamation-triangle" class="emoticon"></i>
+                <span style="color: #fff;">Report An Incident</span>
+            </a>
+            <a href="#" class="nav-item" data-section="hotlines-section">
+                <i class="fas fa-phone-alt"></i>
+                <span>Hotlines</span>
+            </a>
+
+            <a href="#" class="nav-item" data-section="my-reports-section">
+                <i class="fas fa-clipboard-list"></i>
+                <span>My Report History</span>
+            </a>
+            <a href="#" class="nav-item" data-section="map-section">
+                <i class="fas fa-map-marked-alt" s></i>
+                <span>Map</span>
+            </a>
+
+            <div class="nav-item" data-section="first-aid-section">
+                <i class="fas fa-first-aid"></i>
+                <span>First Aid</span>
+            </div>
+
+            <a href="#" class="nav-item" id="admin-login-btn">
+                <i class="fas fa-user-shield"></i>
+                <span>Admin</span>
+            </a>
+        </nav>
+        </footer>
+
+
+
+
+    </div>
+
+            <!-- Success Notification -->
+            <div id="success-notification" class="notification-container">
+                <div class="notification success-notification">
+                    <div class="notification-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="notification-content">
+                        <h3>Emergency Report Submitted</h3>
+                        <p>Your report has been successfully submitted. Emergency services have been notified and rescuers are on their way.</p>
+                    </div>
+                    <button class="notification-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Admin Login Modal -->
+            <div id="admin-login-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2><i class="fas fa-user-shield"></i> Admin Login</h2>
+                        <button class="close-modal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="admin-login-form">
+                            <!-- Add CSRF token -->
+                            <input type="hidden" id="csrf-token" name="csrf-token">
+                            
+                            <div class="form-field">
+                                <label for="admin-username">Username</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="admin-username" name="admin-username" placeholder="Admin Username" required autocomplete="username">
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label for="admin-password">Password</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="admin-password" name="admin-password" placeholder="Admin Password" required autocomplete="current-password">
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <div class="captcha-container">
+                                    <label class="captcha-label">
+                                        <div class="captcha-checkbox">
+                                            <input type="checkbox" id="captcha-checkbox" required><span>I'm not a robot</span>
+                                        </div>
+                                        
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="primary-btn">
+                                <i class="fas fa-sign-in-alt" style="color: white;"></i> Login
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Scripts -->
+        <!-- OpenStreetMap JavaScript -->
+        <script src="js/emergency-reports.js"></script>
+        <script src="js/ai-response.js"></script>
+        <script src="js/app.js"></script>
+        <!-- Add the new map functions script -->
+        <script src="js/map-functions.js"></script>
+        <!-- Add admin.js script -->
+        <!-- Add this before emergency-reports.js -->
+        <script src="js/database.js"></script>
+        <script src="js/first-aid.js"></script>
+        <script src="js/admin.js"></script>
+        <script src="js/script.js"></script>
+
+    <!-- Add this before the closing body tag -->
+    <script src="js/admin-security.js"></script>
+</body>
+</html>

@@ -1,0 +1,1583 @@
+/* Base Styles */
+
+/* Map and Location Styles */
+.map-container {
+    width: 100%;
+    height: 700px;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+}
+
+/* Map Controls Styling */
+.map-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.map-controls .action-btn {
+    margin-top: 20px;
+    flex: 1;
+    border-radius: 20px;
+    border: 2px solid var(--accent-color);
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.map-controls .action-btn i {
+    margin-right: 5px;
+}
+
+/* For smaller screens, allow wrapping */
+@media (max-width: 600px) {
+    .map-controls {
+        flex-wrap: wrap;
+    }
+    
+    .map-controls .action-btn {
+        flex-basis: 48%;
+    }
+}
+
+/* For very small screens, stack vertically */
+@media (max-width: 400px) {
+    .map-controls .action-btn {
+        flex-basis: 100%;
+    }
+}
+
+.action-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #ccc;
+}
+
+.action-btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #ccc;
+}
+
+.action-btn.disabled:hover {
+    background-color: #ccc;
+    transform: none;
+}
+
+.user-location-marker {
+    color: var(--primary-color);
+    font-size: 30px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.emergency-service-marker {
+    color: var(--secondary-color);
+    font-size: 24px;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.7);
+}
+
+.service-popup {
+    padding: 5px;
+}
+
+.service-popup h3 {
+    margin: 0 0 5px 0;
+    color: var(--primary-color);
+    font-size: 16px;
+}
+
+.service-popup p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.navigate-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.navigate-btn i {
+    margin-right: 5px;
+}
+
+/* Location Input Styles */
+.location-input-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.get-location-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Emergency Services List */
+.emergency-contacts-list {
+    margin-top: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background-color: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.medical-icon {
+    background-color: #ffebee;
+    color: #e53935;
+}
+
+.fire-icon {
+    background-color: #fff3e0;
+    color: #ff9800;
+}
+
+.police-icon {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* New Emergency Report Header Design */
+.emergency-report-header {
+    background: linear-gradient(135deg, #ff6b6b 0%, #e63946 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.emergency-report-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,100 M0,100 L100,0" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+    background-size: 20px 20px;
+    opacity: 0.3;
+}
+
+.alert-icon-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    position: relative;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.alert-icon-container i {
+    font-size: 2rem;
+    color: white;
+}
+
+.pulse {
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.header-content {
+    flex: 1;
+}
+
+.emergency-report-header h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.emergency-report-header p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.4;
+    max-width: 90%;
+}
+
+/* Add a responsive adjustment for smaller screens */
+@media (max-width: 480px) {
+    .emergency-report-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.25rem;
+    }
+    
+    .alert-icon-container {
+        margin: 0 0 1rem 0;
+    }
+    
+    .emergency-report-header p {
+        max-width: 100%;
+    }
+}
+
+
+/* Interactive Emergency Type Selector */
+.emergency-type-selector {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.emergency-type-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.emergency-option {
+    background-color: white;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.emergency-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.emergency-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.emergency-option:hover::before {
+    transform: translateY(0);
+}
+
+.emergency-option.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(230, 57, 70, 0.05);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.2);
+}
+
+.emergency-option.selected::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    z-index: 2;
+}
+
+.option-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.emergency-option:hover .option-icon,
+.emergency-option.selected .option-icon {
+    transform: scale(1.1);
+}
+
+.emergency-option:active .option-icon {
+    transform: scale(0.95);
+}
+
+.medical-icon {
+    background-color: #ffebee;
+    color: #e53935;
+}
+
+.fire-icon {
+    background-color: #fff3e0;
+    color: #ff9800;
+}
+
+.police-icon {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.disaster-icon {
+    background-color: #fffde7;
+    color: #fbc02d;
+}
+
+.traffic-icon {
+    background-color: #e8f5e9;
+    color: #4caf50;
+}
+
+.other-icon {
+    background-color: #f5f5f5;
+    color: #757575;
+}
+
+.option-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    color: #333;
+}
+
+.hidden-select {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Animation for selection */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+:root {
+    --primary-color: #e63946;
+    --secondary-color: #1d3557;
+    --light-color: #f1faee;
+    --accent-color: #457b9d;
+    --success-color: #2a9d8f;
+    --warning-color: #e9c46a;
+    --danger-color: #e76f51;
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f8f9fa;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Header Styles */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+    margin-top: -2%;
+    height: 100px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+header h1 {
+    font-size: 2rem; /* Default font size for larger screens */
+    padding: 20px; /* Default padding */
+    margin-bottom: 0.5rem;
+}
+
+/* Styles for mobile devices */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem; /* Smaller font size for mobile screens */
+        padding: 10px; /* Reduced padding for mobile screens */
+    }
+}
+
+header .tagline {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Section Styles */
+section {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+section h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.hidden-section {
+    display: none;
+}
+
+.active-section {
+    display: block;
+}
+
+/* Emergency Dashboard */
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.emergency-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    background-color: white;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.emergency-btn i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.emergency-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow);
+}
+
+.emergency-btn[data-type="medical"] {
+    border-color: #ff4d6d;
+    color: #ff4d6d;
+}
+
+.emergency-btn[data-type="fire"] {
+    border-color: #ff7f51;
+    color: #ff7f51;
+}
+
+.emergency-btn[data-type="police"] {
+    border-color: #5a67d8;
+    color: #5a67d8;
+}
+
+.emergency-btn[data-type="disaster"] {
+    border-color: #3498db;
+    color: #3498db;
+}
+
+.emergency-btn[data-type="traffic"] {
+    border-color: #f39c12;
+    color: #f39c12;
+}
+
+.emergency-btn[data-type="other"] {
+    border-color: #7f8c8d;
+    color: #7f8c8d;
+}
+
+/* Form Styles */
+.back-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.back-btn i {
+    margin-right: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.location-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.location-input input {
+    flex: 1;
+}
+
+.location-input button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+#location-map {
+    margin-top: 0.5rem;
+    border-radius: var(--border-radius);
+    height: 400px;
+    border: 1px solid #000000;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: var(--transition);
+}
+
+.submit-btn:hover {
+    background-color: #d32f2f;
+}
+
+.media-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.media-preview img, .media-preview video {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* AI Response Section */
+.response-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.ai-guidance, .emergency-contacts {
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+}
+
+.ai-guidance h3, .emergency-contacts h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.guidance-content, .contacts-list {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    border: 1px solid #eee;
+}
+
+.loading {
+    color: #777;
+    font-style: italic;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.action-btn {
+    padding: 0.75rem;
+    z-index: 0;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.call-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.call-btn :hover{
+    background-color: var(--danger-color);
+    color: orange;
+}
+
+
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .emergency-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .action-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .app-container {
+        padding: 2rem;
+    }
+    
+    section {
+        padding: 2rem;
+    }
+}
+
+/* Additional Mobile-First Styles */
+.welcome-card {
+    background: linear-gradient(135deg, #e63946 0%, #f77f5e 100%);
+    color: white;
+    padding: 2rem 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(230, 57, 70, 0.4);
+}
+
+.welcome-card h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-card p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.welcome-card .description {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.primary-btn {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.85rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.primary-btn i {
+    margin-right: 0.5rem;
+    color: var(--danger-color);
+    font-size: 1.2rem;
+}
+
+
+
+.primary-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+.primary-btn i {
+    margin-right: 0.5rem;
+    color: var(--danger-color);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.feature-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 10px solid transparent;
+
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:nth-child(1) {
+    border-left-color: #e63946;
+}
+
+.feature-card:nth-child(2) {
+    border-left-color: #3498db;
+}
+
+.feature-card:nth-child(3) {
+    border-left-color: #f39c12;
+}
+
+.feature-card:nth-child(4) {
+    border-left-color: #2ecc71;
+}
+
+.feature-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.alert-icon {
+    background-color: #ffebee;
+    color: #e53935;
+}
+
+.phone-icon {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.ai-icon {
+    background-color: #fff8e1;
+    color: #ffa000;
+}
+
+.safety-icon {
+    background-color: #e8f5e9;
+    color: #43a047;
+}
+
+.feature-content h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.feature-content p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.quickButtons {
+    border: 1px solid #000000;
+}
+
+.quick-actions {
+    background-color: #cccccc;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.quick-actions h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.2rem;
+    text-align: center;
+    position: relative;
+}
+
+.quick-actions h3::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 3px;
+}
+
+
+.action-btn:first-child {
+    border-left: 3px solid #3498db;
+}
+
+.action-btn:last-child {
+    border-left: 3px solid #e67e22;
+}
+
+.action-btn i {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.action-btn:first-child i {
+    color: #3498db;
+}
+
+.action-btn:last-child i {
+    color: #e67e22;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+}
+
+.action-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 5px 0; /* Reduced padding a bit */
+    border-top: 1px solid #e0e0e0;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    text-decoration: none;
+    color: #757575; /* Default icon and text color */
+    padding: 8px 5px; /* Adjust padding for better spacing */
+    font-size: 0.75rem; /* Slightly smaller text */
+    flex-grow: 1; /* Allow items to grow and fill space */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease; /* Smooth transitions */
+    border-radius: 8px; /* Rounded corners for hover effect */
+    margin: 0 2px; /* Small margin between items */
+    min-height: 50px; /* Ensure consistent height */
+}
+
+.nav-item i {
+    font-size: 1.4rem; /* Icon size */
+    margin-bottom: 4px; /* Space between icon and text */
+}
+
+/* General Hover Effect for Nav Items */
+.nav-item:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+    color: var(--primary-color, #e63946); /* Change color to primary on hover */
+    transform: translateY(-2px); /* Slight upward movement */
+}
+
+/* Active Nav Item Style */
+.nav-item.active {
+    color: var(--primary-color, #e63946); /* Primary color for active item */
+    font-weight: bold;
+}
+
+.nav-item.active i {
+    color: var(--primary-color, #e63946);
+}
+
+
+/* Highlighted "Report" button - Normal State (subtle highlight) */
+.nav-item[data-section="report-form"] {
+    /* Optional: Add a very subtle permanent distinction if desired */
+    background-color: #ff796f;
+    color: #ff0000; /* Very light red tint */
+}
+
+
+/* Prominent Highlight for "Report" button on hover and when active */
+.nav-item[data-section="report-form"]:hover,
+.nav-item[data-section="report-form"].active {
+    background-color: #e63946; /* Red background */
+    color: #ffffff; /* White text and icon */
+    transform: translateY(-3px) scale(1.05); /* Slightly more pronounced movement and scale */
+    box-shadow: 0 0 15px rgba(230, 57, 70, 0.5); /* Red glow */
+}
+
+.nav-item[data-section="report-form"]:hover i,
+.nav-item[data-section="report-form"].active i {
+    color: #ffffff; /* White icon */
+}
+
+/* Default state for the report button's icon - IT SHOULD PULSE */
+.nav-item[data-section="report-form"] i {
+    animation: pulseReportIcon 1.5s infinite ease-in-out;
+    /* Icon color will be the default nav-item icon color unless active/hovered */
+}
+
+/* Optional: Pulsating animation for the "Report" button icon when it's the default active or to draw attention */
+.nav-item[data-section="report-form"].active i,
+.nav-item[data-section="report-form"]:hover i { /* Apply to hover as well for consistency */
+    animation: pulseReportIcon 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseReportIcon {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Ensure the "Report" button's specific styles override general .nav-item.active if needed */
+.nav-item[data-section="report-form"].active {
+    background-color: #e63946; /* Red background */
+    color: #ffffff; /* White text and icon */
+    font-weight: bold; /* Keep bold for active state */
+}
+
+/* Adjust main container to account for bottom nav */
+main {
+    padding-bottom: 4.5rem;
+    color: #333; /* Dark text for better readability */;
+}
+
+/* Adjust footer for bottom nav */
+footer {
+    margin-bottom: 3.5rem;
+}
+
+/* Section Transitions */
+.section-transition {
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    will-change: transform, opacity;
+}
+
+.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.slide-out-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slide-out-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.active-section {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.7;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Report Form Styling to match the image */
+#report-form {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.report-header {
+    background-color: #ffebee;
+    color: #e63946;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.report-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #e63946;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.report-header h2 i {
+    margin-right: 0.5rem;
+}
+
+.report-header p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #e63946;
+}
+
+.report-form-container {
+    padding: 1.5rem;
+}
+
+.form-field {
+    margin-bottom: 1.5rem;
+}
+
+.form-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1rem;
+}
+
+.form-field label::after {
+    content: "*";
+    color: #e63946;
+    margin-left: 0.25rem;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #aaa;
+}
+
+.form-field textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-field .location-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-field .location-input i {
+    position: absolute;
+    left: 0.75rem;
+    color: #777;
+}
+
+.form-field .location-input input {
+    padding-left: 2.5rem;
+}
+
+.optional-section {
+    background-color: #f0f7ff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.optional-section h3 {
+    color: #3498db;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.optional-section p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.optional-field {
+    margin-bottom: 1rem;
+}
+
+.optional-field:last-child {
+    margin-bottom: 0;
+}
+
+.optional-field label {
+    font-weight: normal;
+}
+
+.optional-field label::after {
+    content: "";
+}
+
+.submit-report-btn {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-report-btn i {
+    margin-right: 0.5rem;
+}
+
+.submit-report-btn:hover {
+    background-color: #d62f3d;
+}
+
+/* Hotlines Section Styles */
+.section-header {
+    background-color: #e63946;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-header h2 i {
+    margin-right: 0.5rem;
+}
+
+.section-header p {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.hotlines-container {
+    padding: 1rem;
+}
+
+.hotline-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    border: 2px solid #c9c9c9;
+}
+
+.hotline-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+
+.disaster-icon {
+    background-color: #fffde7;
+    color: #fbc02d;
+}
+
+.hotline-info {
+    flex: 1;
+}
+
+.hotline-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.hotline-info p {
+    margin: 0.25rem 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.hotline-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e63946;
+    margin-top: 0.25rem;
+}
+
+.call-button {
+    width: 3rem;
+    height: 3rem;
+    background-color: #4caf50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.call-button:hover {
+    background-color: #43a047;
+    transform: scale(1.05);
+}
+
+/* My Reports Section Styles */
+.reports-container {
+    padding: 1rem;
+
+}
+
+.report-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    border: 1px solid #000000;
+}
+
+
+.medical-report .report-header {
+    background-color: #ffebee;
+}
+
+.fire-report .report-header {
+    background-color: #fff3e0;
+}
+
+.police-report .report-header {
+    background-color: #e3f2fd;
+}
+
+.disaster-report .report-header {
+    background-color: #fffde7;
+}
+
+.traffic-report .report-header {
+    background-color: #e8f5e9;
+}
+
+.report-type {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.report-type i {
+    margin-right: 0.5rem;
+}
+
+.medical-report .report-type i {
+    color: #e53935;
+}
+
+.fire-report .report-type i {
+    color: #ff9800;
+}
+
+.police-report .report-type i {
+    color: #1976d2;
+}
+
+.disaster-report .report-type i {
+    color: #fbc02d;
+}
+
+.traffic-report .report-type i {
+    color: #4caf50;
+}
+
+.delete-report-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.delete-report-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #e53935;
+}
+
+.report-id {
+    font-size: 0.8rem;
+    color: #777;
+    padding: 0 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.report-details {
+    padding: 0 1rem 1rem;
+}
+
+.report-detail {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #333;
+    display: flex;
+    align-items: flex-start;
+}
+
+.report-detail i {
+    margin-right: 0.5rem;
+    color: #777;
+    min-width: 1rem;
+    margin-top: 0.2rem;
+}
+
+
+
+.no-reports-message {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #777;
+}
+
+.no-reports-message i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ddd;
+}
+
+.no-reports-message p {
+    font-size: 1.1rem;
+}
+
+/* Add these styles to align the CAPTCHA properly */
+.captcha-container {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.captcha-checkbox {
+    margin-right: 8px;
+}
+
+.captcha-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Style for the checkbox itself */
+.captcha-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
